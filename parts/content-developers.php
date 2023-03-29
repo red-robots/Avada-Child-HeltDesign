@@ -58,10 +58,10 @@ if($banner_image) { ?>
   <?php if( have_rows('types') ) { ?>
   <div class="section-flexible-content">
     <div class="wrapper">
-    <?php while ( have_rows('types') ) : the_row(); ?>
+    <?php $n=1; while ( have_rows('types') ) : the_row(); ?>
       <?php if( get_row_layout() == 'type' ) { 
         $title = get_sub_field('title');
-        $id = get_sub_field('id');
+        $tabid = (get_sub_field('id')) ? get_sub_field('id') : 'tab-'.$n;
         $feature_type = get_sub_field('feature_type');
         $feat_image = get_sub_field('feat_image');
         $video_thumbnail = get_sub_field('video_thumbnail');
@@ -96,7 +96,7 @@ if($banner_image) { ?>
           }
         }
         if($visibility=='show') { ?>
-        <div class="flex-content feattype_<?php echo $feature_type.$videoType  ?>">
+        <div id="<?php echo $tabid ?>" class="flex-content feattype_<?php echo $feature_type.$videoType  ?>">
           <?php if ($title) { ?>
             <h2 class="t1"><?php echo $title ?></h2>
           <?php } ?>
@@ -129,7 +129,7 @@ if($banner_image) { ?>
           </div>
         </div>
         <?php } ?>
-      <?php } ?>
+      <?php $n++; } ?>
     <?php endwhile; ?>
     </div>
   </div>

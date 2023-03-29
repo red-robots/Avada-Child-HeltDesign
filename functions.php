@@ -12,6 +12,11 @@ function theme_enqueue_styles() {
     get_stylesheet_directory_uri() . '/js/fancybox.js', 
     array(), '20230329', true 
   );
+  wp_enqueue_script( 
+    'carousel', 
+    get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', 
+    array(), '20230329', true 
+  );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
@@ -118,7 +123,7 @@ function custom_admin_css() {
 
 add_action('wp_head', 'custom_head_function');
 function custom_head_function() { ?>
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/custom.css' ?>">
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/css/custom.css' ?>">
 <?php }
 
 
