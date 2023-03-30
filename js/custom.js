@@ -206,9 +206,14 @@ jQuery(document).ready(function ($) {
     var baImages = [];
     var i = 1;
     $('.section-before-and-after .info').each(function(){
-      var parent = $(this).parent().not('.cloned');
+      if( $('.baTabs .owl-carousel').hasClass('owl-loaded') ) {
+        var parent = $(this).parent().not('.cloned');
+      } else {
+        var parent = $(this);
+      }
       var link = parent.find('.ba_tab');
       var baId = link.attr('data-id');
+      console.log(baId);
       var beforeImg = link.attr('data-before-img');
       var afterImg = link.attr('data-after-img');
       if(beforeImg && afterImg) {
@@ -231,6 +236,7 @@ jQuery(document).ready(function ($) {
   $(document).on('click','.ba_tab',function(e){
     e.preventDefault();
     var baId = $(this).attr('data-id');
+    console.log(baId);
     $('.baTabs .info').removeClass('active');
     $(this).parent().toggleClass('active');
     $('.section-before-and-after .baItem').removeClass('active');
