@@ -13,6 +13,16 @@ function theme_enqueue_styles() {
     array(), '20230329', true 
   );
   wp_enqueue_script( 
+    'inview',
+    get_stylesheet_directory_uri() . '/js/jquery.inview.min.js', 
+    array(), '20230329', true 
+  );
+  wp_enqueue_script( 
+    'customjs', 
+    get_stylesheet_directory_uri() . '/js/custom.js', 
+    array(), '20230329', true 
+  );
+  wp_enqueue_script( 
     'carousel', 
     get_stylesheet_directory_uri() . '/js/owl.carousel.min.js', 
     array(), '20230329', true 
@@ -117,12 +127,17 @@ function custom_admin_css() {
       .acf-field[data-name="icons"] [data-name="icon"] img {
         max-width: 50px!important;
       }
+      .postbox[id^="featured-image-"] {
+        display: none!important;
+      }
     </style>
   <?php }
 }
 
 add_action('wp_head', 'custom_head_function');
 function custom_head_function() { ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() . '/css/custom.css' ?>">
 <?php }
 

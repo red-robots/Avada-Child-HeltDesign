@@ -1,4 +1,5 @@
 @import "owlcarousel";
+@import "fancybox";
 
 $color_primary: #aa1e2e;
 $color_text: #000000;
@@ -52,7 +53,10 @@ html.avada-is-100-percent-template body.developers {
     position: relative;
   }
   .fullwidth-box {
-    width: 100%;
+    width: 100%!important;
+    margin: 0 0!important;
+    padding: 0 0!important;
+
     .fusion-builder-row {
       max-width: 100%!important;
       width: 100%!important;
@@ -67,7 +71,7 @@ html.avada-is-100-percent-template body.developers {
     background-color: #CCC;
     position: relative;
     @include tab {
-      height: 600px;
+      height: 500px;
     }
     @include mid {
       height: 70vh;
@@ -166,7 +170,7 @@ html.avada-is-100-percent-template body.developers {
       content:"";
       display: block;
       width: 100%;
-      height: 2px;
+      height: 1px;
       background: $color_primary;
       position: absolute;
       bottom: 0;
@@ -243,6 +247,15 @@ html.avada-is-100-percent-template body.developers {
     }
     .imagebox {
       position: relative;
+      width: 100%;
+      float: left;
+      a {
+        display: block;
+        width: 100%;
+        float: left;
+        position: relative;
+        text-decoration: none;
+      }
       div.img {
         position: absolute;
         top: 0;
@@ -257,8 +270,48 @@ html.avada-is-100-percent-template body.developers {
       img {
         width: 100%;
         height: auto;
+        width: 100%;
+        float: left;
         position: relative;
         z-index: 5;
+      }
+      &.type-video {
+        div.img:before {
+          content:"";
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: rgba(0,0,0,.3);
+        }
+        .player {
+          display: block;
+          width: 50px;
+          height: 50px;
+          border-radius: 200px;
+          border: 1px solid #FFF;
+          background: rgba(255,255,255,.15);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          z-index: 30;
+          &:before {
+            content:"";
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 18px solid #FFF;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            position: absolute;
+            top: 13px;
+            left: 19px;
+          }
+        }
+        
       }
     }
     .counter {
@@ -280,5 +333,289 @@ html.avada-is-100-percent-template body.developers {
       }
     }
   }
+
+  .border-bottom {
+    margin-top: 60px;
+    padding-bottom: 0;
+    &:after {
+      content:"";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: $color_primary;
+    }
+  }
+
+  div.divider {
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+  }
+  .flex-content:last-child .divider {
+    display: none;
+  }
 }
 
+.section-carousel {
+  padding: 50px 0;
+  position: relative;
+  .carousel-height-helper {
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  .owl-carousel {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .item, 
+  .item figure,
+  .item img {
+    width: 100%;
+    float: left;
+  }
+  .item {
+    position: relative;
+    &:before {
+      content:"";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(255,255,255,.75);
+    }
+    figure {
+      margin: 0 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 30% 0;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .owl-dots,
+  .owl-nav {
+    display: none!important;
+  }
+  .owl-item {
+    &.active.center {
+      .item:before {
+        display: none;
+      }
+    }
+  }
+}
+
+.section-flexible-content,
+.section-testimonial,
+.section-carousel,
+.flex-content,
+.section-before-and-after {
+  width: 100%;
+  float: left;
+}
+
+.section-testimonial {
+  .testimonial {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    &:before {
+      content:"";
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin: 0 auto 15px;
+      position: relative;
+      background: {
+        image:url('../img/quote.svg');
+        size: 75%;
+        repeat:no-repeat;
+        position: center;
+      };
+    }
+  }
+  .message {
+    margin-bottom: 15px;
+  }
+  .author {
+    font-size: 0.8em;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #7b7b7b;
+  }
+}
+
+.section-before-and-after {
+  position: relative;
+  padding: 0 30px;
+  margin-top: 60px;
+  .inner {
+    width: 100%;
+    float: left;
+    border: 2px solid #CCC;
+    min-height: 200px;
+  }
+  .owl-nav, .owl-dots {
+    display: none!important;
+  }
+  .info {
+    padding: 0 30px;
+    min-width: 50%;
+    border-left: 2px solid #CCC;
+    @include tab {
+      min-width: 200px;
+    }
+    figure {
+      padding: 40px;
+      background-size: 160px;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 0;
+    }
+    .ba_tab {
+      display: block;
+      position: relative;
+      padding: 10px 5px;
+    }
+    &.active {
+      .ba_tab {
+        &:before {
+          content: "";
+          display: block;
+          width: 0; 
+          height: 0; 
+          border-bottom: 8px solid #000; 
+          border-left: 10px solid transparent; 
+          border-right: 10px solid transparent;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+  .info:first-child {
+    border-left: none;
+  }
+  .owl-item {
+    border-left: 2px solid #CCC;
+  }
+  .owl-item:first-child {
+    border-left: none;
+  }
+  .baTabs {
+    position: relative;
+    overflow: hidden;
+    .owl-carousel {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .ba-image-container {
+    position: relative;
+    width: 100%;
+    float: left;
+    img.resizer {
+      width: 100%;
+      height: 100%;
+      float: left;
+    }
+    .baImageContainer {
+      position: relative;
+      border-top: 2px solid #CCC;
+      z-index: 10;
+    }
+    .baItem {
+      width: 100%;
+      height: 100%;
+      display: none;
+      &.active {
+        display: flex;
+        flex-wrap: wrap;
+        div.img {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          @include tab {
+            width: 50%;
+          }
+          span {
+            display: inline-block;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            background: #656565;
+            color: #FFF;
+            padding: 2px 30px;
+            z-index: 20;
+          }
+        }
+        figure {
+          margin: 0 0;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: relative;
+          // top: 0;
+          // left: 0;
+          width: 100%;
+          float: left;
+          position: relative;
+        }
+      }
+    }
+  }
+  .before-after-carousel.owl-loaded {
+    position: relative;
+    left: -2px;
+    .baItem {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .owl-nav {
+      display: block;
+    }
+  }
+}
+
+.section-bottom-callout {
+  background: $color_primary;
+  .container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+  .callout-message {
+    font-size: 2em;
+    line-height: 1.2;
+    color: #FFF;
+  }
+  .button {
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+    background: #FFF;
+    color: $color_primary;
+    padding: 5px 30px;
+    &:hover {
+      background: #000;
+      color: #FFF;
+    }
+  }
+}
