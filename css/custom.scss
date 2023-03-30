@@ -354,6 +354,26 @@ html.avada-is-100-percent-template body.developers {
   .flex-content:last-child .divider {
     display: none;
   }
+  .image-text-section {
+    .info {
+      ul > li {
+        list-style: none;
+        position: relative;
+        padding-left: 15px;
+        &:before {
+          content:"";
+          display: block;
+          width: 6px;
+          height: 6px;
+          position: absolute;
+          top: 7px;
+          left: 1px;
+          border-radius: 100px;
+          border: 1px solid $color_primary;
+        }
+      }
+    }
+  }
 }
 
 .section-carousel {
