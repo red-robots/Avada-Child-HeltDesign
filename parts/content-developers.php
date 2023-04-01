@@ -98,34 +98,36 @@ if($banner_image) { ?>
           <div class="wrapper">
             <div class="flexwrap image-text-section">
               <div class="fxcol fxleft">
-                <div class="imagebox type-<?php echo $feature_type ?>">
-                  <?php if ($feature_type=='video') { ?>
-                    <a class="fancybox" href="<?php echo $videoURL ?>">
-                      <span class="player"></span>
+                <div class="wrap">
+                  <div class="imagebox type-<?php echo $feature_type ?>">
+                    <?php if ($feature_type=='video') { ?>
+                      <a class="fancybox" href="<?php echo $videoURL ?>">
+                        <span class="player"></span>
+                        <?php if ($imageURL) { ?>
+                        <div class="img" style="background-image:url('<?php echo $imageURL ?>')"></div> 
+                        <?php } ?>
+                        <img src="<?php echo get_stylesheet_directory_uri() ?>/img/resizer.png" alt="">
+                      </a>
+                    <?php } else { ?>
                       <?php if ($imageURL) { ?>
                       <div class="img" style="background-image:url('<?php echo $imageURL ?>')"></div> 
                       <?php } ?>
                       <img src="<?php echo get_stylesheet_directory_uri() ?>/img/resizer.png" alt="">
-                    </a>
-                  <?php } else { ?>
-                    <?php if ($imageURL) { ?>
-                    <div class="img" style="background-image:url('<?php echo $imageURL ?>')"></div> 
                     <?php } ?>
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/img/resizer.png" alt="">
+                  </div>
+                  <?php if ($counter) { ?>
+                  <div class="counter">
+                    <?php foreach ($counter as $c) { ?>
+                      <?php if ($c['count_number']) { ?>
+                      <div class="count">
+                        <div class="cnum"><span count="up" data-count-duration="2200" class="animate-count"><?php echo $c['count_number'] ?></span></div>
+                        <div class="ctext"><span><?php echo $c['count_title'] ?></span></div>
+                      </div> 
+                      <?php } ?>
+                    <?php } ?>
+                  </div>
                   <?php } ?>
                 </div>
-                <?php if ($counter) { ?>
-                <div class="counter">
-                  <?php foreach ($counter as $c) { ?>
-                    <?php if ($c['count_number']) { ?>
-                    <div class="count">
-                      <div class="cnum"><span count="up" data-count-duration="2200" class="animate-count"><?php echo $c['count_number'] ?></span></div>
-                      <div class="ctext"><span><?php echo $c['count_title'] ?></span></div>
-                    </div> 
-                    <?php } ?>
-                  <?php } ?>
-                </div>
-                <?php } ?>
               </div>
               <div class="fxcol fxright">
                 <?php if ($information) { ?>
@@ -163,7 +165,7 @@ if($banner_image) { ?>
           <?php /* BEFORE AND AFTER */ ?>
           <?php if( $beforeAfter = get_sub_field('beforeAfter') ) { ?>
           <div class="section-before-and-after" data-bacount="<?php echo count($beforeAfter) ?>">
-            <div class="inner">
+            <div class="section-before-inner inner">
               <div class="baTabs" data-resizer="<?php echo get_stylesheet_directory_uri() ?>/img/resizer.png">
                 <div class="owl-carousel owl-theme before-after-carousel">
                 <?php $x=1; foreach ($beforeAfter as $b) { 

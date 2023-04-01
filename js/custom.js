@@ -92,7 +92,7 @@ jQuery(document).ready(function ($) {
         loop: true,
         margin: 0,
         nav: true,
-        navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+        navText:['<span aria-label="Previous">‹</span>','<span aria-label="Next">›</span>'],
         autoplay: false,
         autoplayTimeout: 5000,
         responsiveClass: true,
@@ -103,6 +103,10 @@ jQuery(document).ready(function ($) {
           1200:{
             items:5
           },
+        },
+        onInitialized:function(){
+          $('.section-before-and-after').addClass('carousel-init');
+          $('.section-before-and-after .owl-nav').insertBefore('.section-before-inner');
         }
       }
       selector.owlCarousel(options);
@@ -213,7 +217,6 @@ jQuery(document).ready(function ($) {
       }
       var link = parent.find('.ba_tab');
       var baId = link.attr('data-id');
-      console.log(baId);
       var beforeImg = link.attr('data-before-img');
       var afterImg = link.attr('data-after-img');
       if(beforeImg && afterImg) {
@@ -236,7 +239,6 @@ jQuery(document).ready(function ($) {
   $(document).on('click','.ba_tab',function(e){
     e.preventDefault();
     var baId = $(this).attr('data-id');
-    console.log(baId);
     $('.baTabs .info').removeClass('active');
     $(this).parent().toggleClass('active');
     $('.section-before-and-after .baItem').removeClass('active');

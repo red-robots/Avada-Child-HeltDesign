@@ -42,6 +42,9 @@ html.avada-is-100-percent-template body.developers {
     padding-right: 15px;
     position: relative;
   }
+  #content {
+    background: #F9F9F9;
+  }
   #main.width-100 {
     padding: 0 0;
     position: relative;
@@ -67,7 +70,8 @@ html.avada-is-100-percent-template body.developers {
     }
   }
   .custom-banner {
-    height: 400px;
+    // height: 400px;
+    height: 70vh;
     background-color: #CCC;
     position: relative;
     @include tab {
@@ -106,9 +110,14 @@ html.avada-is-100-percent-template body.developers {
       margin-left: -10px;
       margin-right: -10px;
       position: absolute;
-      top: 8vh;
+      top: 5vh;
       left: 0;
       width: 100%;
+      text-align: center;
+      @include tab {
+        text-align: left;
+        top: 8vh;
+      }
       a {
         display: inline-block;
         text-decoration: none;
@@ -119,6 +128,11 @@ html.avada-is-100-percent-template body.developers {
         line-height: 1.1;
         margin: 5px 10px;
         box-shadow: 0 8px 8px rgba(0,0,0,0.1);
+        min-width: 215px;
+        text-align: center;
+        @include tab {
+          min-width: unset;
+        }
         &:hover {
           background: $color_text;
         }
@@ -128,12 +142,18 @@ html.avada-is-100-percent-template body.developers {
       width: 100%;
       height: 100%;
       div.text {
-        font-size: 3.8rem;
+        font-size: 2.3rem;
         line-height: 1.2;
         max-width: 740px;
         width: 100%;
         color: #FFF;
-        padding-top: 22vh;
+        margin-top: 30vh;
+        text-align: center;
+        @include tab {
+          text-align: left;
+          font-size: 3.8rem;
+          margin-top: 22vh;
+        }
       }
     }
   }
@@ -229,6 +249,9 @@ html.avada-is-100-percent-template body.developers {
   .flex-content {
     padding: 30px 0;
   }
+  .image-text-section {
+    background: #FFF;
+  }
   .flexwrap {
     display: flex;
     flex-wrap: wrap;
@@ -237,12 +260,25 @@ html.avada-is-100-percent-template body.developers {
       width: 100%;
       @include tab {
         width: 40%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .wrap {
+        width: 100%;
       }
     }
     .fxright {
       width: 100%;
+      padding: 25px;
       @include tab {
         width: 58%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .info {
+        width: 100%;
       }
     }
     .imagebox {
@@ -321,15 +357,25 @@ html.avada-is-100-percent-template body.developers {
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 20px 10px;
       text-align: center;
+      @include tab {
+        padding: 20px;
+      }
       .count {
         width: 33%;
+        padding: 0 15px;
+        @include tab {
+          padding: 0 10px;
+        }
       }
       .cnum {
-        font-size: 35px;
+        font-size: 28px;
         font-weight: 500;
         line-height: 1;
+        @include tab {
+          font-size: 35px;
+        }
       }
     }
   }
@@ -356,6 +402,13 @@ html.avada-is-100-percent-template body.developers {
   }
   .image-text-section {
     .info {
+      ul {
+        margin-top: -16px;
+        margin-bottom: 20px;
+      }
+      ul:last-child {
+        margin-bottom: 0;
+      }
       ul > li {
         list-style: none;
         position: relative;
@@ -405,7 +458,10 @@ html.avada-is-100-percent-template body.developers {
       position: absolute;
       top: 0;
       left: 0;
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.5);
+      @include tab {
+        background: rgba(255,255,255,.75);
+      }
     }
     figure {
       margin: 0 0;
@@ -427,6 +483,36 @@ html.avada-is-100-percent-template body.developers {
     &.active.center {
       .item:before {
         display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 820px) {
+    .owl-carousel {
+      .owl-nav {
+        display: block!important;
+        .owl-prev, .owl-next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 35px!important;
+          line-height: 1;
+          padding: 0 0!important;
+          color: #FFF!important;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          background: #aa1e2e!important;
+          span {
+            position: relative;
+            top: -6px;
+          }
+        }
+        .owl-prev {
+          left: -3px;
+        }
+        .owl-next {
+          right: -3px;
+        }
       }
     }
   }
@@ -480,25 +566,31 @@ html.avada-is-100-percent-template body.developers {
   .inner {
     width: 100%;
     float: left;
-    border: 2px solid #CCC;
     min-height: 200px;
+    position: relative;
+    border: 2px solid #CCC;
   }
   .owl-nav, .owl-dots {
     display: none!important;
   }
   .info {
-    padding: 0 30px;
+    padding: 0 10px;
     min-width: 50%;
     border-left: 2px solid #CCC;
     @include tab {
+      padding: 0 30px;
       min-width: 200px;
     }
     figure {
-      padding: 40px;
-      background-size: 160px;
+      padding: 40px 15px;
+      background-size: 100%;
       background-position: center;
       background-repeat: no-repeat;
       margin: 0 0;
+      @include tab {
+        padding: 40px;
+        background-size: 75%;
+      }
     }
     .ba_tab {
       display: block;
@@ -535,6 +627,8 @@ html.avada-is-100-percent-template body.developers {
   .baTabs {
     position: relative;
     overflow: hidden;
+    background: #FFF;
+    z-index: 30;
     .owl-carousel {
       display: flex;
       flex-wrap: wrap;
@@ -600,8 +694,42 @@ html.avada-is-100-percent-template body.developers {
   .before-after-carousel.owl-loaded {
     position: relative;
     left: -2px;
+    transform: scale(1.02);
     .baItem {
       display: none;
+    }
+  }
+  &.carousel-init {
+    @media screen and (max-width: 768px) {
+      .owl-nav {
+        display: block!important;
+        .owl-prev, .owl-next {
+          position: absolute;
+          top: 7%;
+          font-size: 35px!important;
+          line-height: 1;
+          padding: 0 0!important;
+          color: #FFF!important;
+          width: 30px;
+          height: 30px;
+          text-align: center;
+          background: #aa1e2e!important;
+          border: none;
+          box-shadow: none;
+          -webkit-appearance:none;
+          z-index: 60;
+          span {
+            position: relative;
+            top: -6px;
+          }
+        }
+        .owl-prev {
+          left: 15px;
+        }
+        .owl-next {
+          right: 15px;
+        }
+      }
     }
   }
   @media screen and (max-width: 768px) {
