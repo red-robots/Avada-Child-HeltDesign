@@ -63,8 +63,8 @@ jQuery(document).ready(function ($) {
     items:2,
     loop: true,
     margin: 10,
-    autoplay: false,
-    autoplayTimeout: 5000,
+    autoplay: true,
+    autoplayTimeout: 4000,
     responsiveClass: true,
     onInitialized:function(){
     },
