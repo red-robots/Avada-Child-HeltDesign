@@ -1,5 +1,4 @@
 <?php
-
 function theme_enqueue_styles() {
   wp_deregister_script('jquery');
   wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js', false, '3.6.3', false);
@@ -183,4 +182,6 @@ function developers_display_content_func( $atts ) {
   ob_end_clean();
   return $content;
 }
+
+
 
