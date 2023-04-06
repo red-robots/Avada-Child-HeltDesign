@@ -172,10 +172,13 @@ if($banner_image) { ?>
                   $logo = $b['logo'];
                   $beforeImg = ($b['before_image']) ? $b['before_image']['url'] : '';
                   $afterImg = ($b['after_image']) ? $b['after_image']['url'] : '';
+                  $projectId = (isset($b['project']->ID)) ? $b['project']->ID : '';
+                  $projectLink = ($projectId) ? get_permalink($projectId) : 'javascript:void(0)';
+
                   $isActive = ($x==1) ? ' active':'';
                   if($logo && ($beforeImg && $afterImg) ) { ?>
                   <div class="info<?php echo $isActive?>">
-                    <a href="javascript:void(0)" class="ba_tab" data-id="batab-<?php echo $x ?>" data-before-img="<?php echo $beforeImg ?>" data-after-img="<?php echo $afterImg ?>"><figure style="background-image:url('<?php echo $logo['url'] ?>')"></figure></a>
+                    <a href="javascript:void(0)" class="ba_tab" data-id="batab-<?php echo $x ?>" data-before-img="<?php echo $beforeImg ?>" data-after-img="<?php echo $afterImg ?>" data-projectlink="<?php echo $projectLink ?>"><figure style="background-image:url('<?php echo $logo['url'] ?>')"></figure></a>
                   </div>
                   <?php $x++; } ?>
                 <?php } ?>

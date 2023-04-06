@@ -219,14 +219,15 @@ jQuery(document).ready(function ($) {
       var baId = link.attr('data-id');
       var beforeImg = link.attr('data-before-img');
       var afterImg = link.attr('data-after-img');
+      var projectLink = (link.attr('data-projectlink')) ? link.attr('data-projectlink') : 'javascript:void(0)';
       if(beforeImg && afterImg) {
         var baImgs = [beforeImg,afterImg];
         baImages.push(baImgs);
         var isActive = (i==1) ? ' active':'';
-        imageContainer += '<div data-rel="'+baId+'" class="baItem'+isActive+'">';
+        imageContainer += '<a class="baItem'+isActive+'" data-rel="'+baId+'"  href="'+projectLink+'">';
         imageContainer += '<div class="img before"><span>Before</span><figure style="background-image:url('+beforeImg+')"><img class="resizer" src="'+imageResizer+'" /></figure></div>';
         imageContainer += '<div class="img after"><span>After</span><figure style="background-image:url('+afterImg+')"><img class="resizer" src="'+imageResizer+'" /></figure></div>';
-        imageContainer += '</div>';
+        imageContainer += '</a>';
         i++;
       }
     });
