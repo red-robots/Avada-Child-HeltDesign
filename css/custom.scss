@@ -475,9 +475,34 @@ html.avada-is-100-percent-template body.developers {
       height: auto;
     }
   }
-  .owl-dots,
-  .owl-nav {
+  .owl-dots {
     display: none!important;
+  }
+  .owl-nav {
+    display: block!important;
+    .owl-prev, .owl-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 0!important;
+      color: #FFF!important;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      span {
+        color: #aa1e2e;
+        font-size: 48px;
+        line-height: 1;
+        position: relative;
+        top: -13px;
+      }
+    }
+    .owl-prev {
+      left: 10px;
+    }
+    .owl-next {
+      right: 10px;
+    }
   }
   .owl-item {
     &.active.center {
@@ -489,11 +514,7 @@ html.avada-is-100-percent-template body.developers {
   @media screen and (max-width: 820px) {
     .owl-carousel {
       .owl-nav {
-        display: block!important;
         .owl-prev, .owl-next {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
           font-size: 35px!important;
           line-height: 1;
           padding: 0 0!important;
@@ -503,8 +524,10 @@ html.avada-is-100-percent-template body.developers {
           text-align: center;
           background: #aa1e2e!important;
           span {
+            font-size: 35px!important;
             position: relative;
-            top: -6px;
+            top: -5px;
+            color: #FFF;
           }
         }
         .owl-prev {
