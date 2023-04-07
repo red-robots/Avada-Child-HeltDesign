@@ -600,6 +600,7 @@ html.avada-is-100-percent-template body.developers {
     padding: 0 10px;
     min-width: 50%;
     border-left: 2px solid #CCC;
+    border-bottom: 3px solid #CCC;
     @include tab {
       padding: 0 30px;
       min-width: 200px;
@@ -631,7 +632,7 @@ html.avada-is-100-percent-template body.developers {
           border-left: 10px solid transparent; 
           border-right: 10px solid transparent;
           position: absolute;
-          bottom: 0;
+          bottom:-1px;
           left: 50%;
           transform: translateX(-50%);
         }
@@ -671,7 +672,7 @@ html.avada-is-100-percent-template body.developers {
     }
     .baImageContainer {
       position: relative;
-      border-top: 2px solid #CCC;
+      // border-top: 2px solid #CCC;
       z-index: 10;
     }
     .baItem {
